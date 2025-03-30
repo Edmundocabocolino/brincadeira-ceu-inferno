@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica,Arial,sans-serif;
+}
+body{
+    background: linear-gradient(90deg,#6b5d4c,#3a705e,rgb(26, 48, 41));
+    
+}
+body:hover{
+    background: linear-gradient(45deg,rgb(26, 48, 41),#6b5d4c,#3a705e);
+    
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    flex-direction: column;/*garante que os elementos fiquem organnizados*/
+    text-align: center;
+    z-index: 2;/*manten os elementos visiveis*/
+}
+section h2{
+    max-width: 90%;/*para evitar que fique muito largo*/
+    font-size: clamp(3rem,6vw,8rem);/*responsivo ajusta o tamanho da tela*/
+    position: relative;
+    z-index: 5;/*mantem o texto atras da imagem*/
+    background: linear-gradient(90deg,#ff8a00,#630c0c,rgb(63, 228, 173));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent ;
+    transform: translate(-4vw,-25vh);
+}
+
+section h2:hover{
+    background: linear-gradient(45deg,rgb(63, 228, 173),#630c0c,#ff8a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent ;
+   
+}
+section img {
+    
+    width: clamp(3rem,8vw,4rem);/*ajusta o tamanho dinamico*/
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-26vw,-40vh);/*move a imagem para a posicao correta */
+    transition: transform 0.150s ease-out;/* suaviza o movimento*/
+    z-index: 1;
+}
+
+.botoes{
+    border-radius: 5%;
+    border: black;
+    z-index: 6;
+}
+.Escolha{
+    font-size: 32px;
+    color: #2c0606;
+    margin-bottom: 15px;
+}
+
+.botaoheave{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: rgb(63, 228, 173);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s, tansform 0.2s;
+    z-index: 5;/*mantem o botao acima dos outros elementos*/
+
+}
+.botaoheave:hover{
+    background-color: rgb(50,180,140);
+    transform: scale(1.05);
+}
+
+.botaohell{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: rgb(206, 7, 17);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s, tansform 0.2s;
+    z-index: 5;/*mantem o botao acima dos outros elementos*/
+
+}
+.botaohell:hover{
+    background-color: rgb(161, 60, 99);
+    transform: scale(1.05);
+}
+
+/* ajustes para telas menores*/
+@media (max-width: 600px){
+    section h2{
+        font-size: clamp(5rem,12vw,8rem);
+    }
+    section img{
+        width: clamp(6rem,12vw,8rem);
+        transform: translate(-32vw,-20vh);
+    }
+}

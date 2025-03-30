@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Helvetica, Arial,  sans-serif;
+}
+
+html{
+    font-size: 16px;
+}
+
+.no-sellect{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select:none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+section.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#50021c ;
+    background: -webkit-linear-gradient(to right,#000000,#f11a61,#50021c);
+    background: linear-gradient(to right,#000000,#f11a61,#50021c);
+}
+section.main::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: -webkit-linear-gradient(to top,#50021c,transparent);
+    background: linear-gradient(to top,#50021c,transparent);
+}
+
+section.main .title{
+    font-size: clamp(3rem, 6vw, 6rem);
+    letter-spacing: -6px;
+    color: #2b3636;
+    position: relative;
+    top :-36px;
+}
+
+section.main .clouds{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+section.main .clouds img{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    animation: clouds calc(3s*var(--i)) linear infinite;
+}
+/* @keyframes faz a animaçao de movimento*/
+@keyframes clouds{
+    0%{
+        opacity: 0;
+        transform: scale(1);
+    }
+    25%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+        transform: scale(4);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(4);
+    }
+}
+/* ajustes para telas menores*/
+@media (max-width: 900px){
+    section.main title {
+        font-size: clamp(4rem,10vw,8rem);
+    }
+    section.main img{
+        width: 100%;
+        height: auto;
+        transform: translate(-20vw,-15vh);
+    }
+}
+
+@media (max-width: 600px){
+    section.main title h1{
+        font-size: clamp(3rem,10vw,6rem);
+    }
+    section.main img{
+        width: 100%;
+        height: auto;
+        transform: translate(-15vw,-10vh);
+    }
+}

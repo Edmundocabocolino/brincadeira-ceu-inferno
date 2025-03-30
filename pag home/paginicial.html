@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>DIMAS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+
+</head>
+
+<body>
+
+    <section>
+
+        <img src="parallax/img/icons4.png" class="layer" data-speed="15">
+        <h2>DIMAS.DEV</h2>
+
+        <div class="botoes">
+            <p class="Escolha">Escolha entre o Céu ou o Inferno!! </p>
+            <a href="../HeavenHell/heavenhell.html" class="botaoheave"> Céu </a>
+            <a href="../hell/hell.html" class="botaohell"> Inferno </a>
+        </div>
+    </section>
+    <script type="text/javascript">
+        const imgLayer = document.querySelector(".layer");
+
+        imgLayer.addEventListener('mouseenter', () => {
+            imgLayer.addEventListener('mousemove', moveObjects);
+        });
+
+        imgLayer.addEventListener('mouseleave', () => {
+            imgLayer.removeEventListener('mousemove', moveObjects);
+        });
+
+        function moveObjects(e) {
+
+            const centerX = window.innerWidth / 2; //centro da tela no eixo x
+            const centerY = window.innerHeight / 2; //centro da tela no eixo y
+
+
+            document.querySelectorAll('.layer').forEach(layer => {
+                const speed = layer.getAttribute('data-speed') || 10;//adiciona um data speed para configurar a velocidade
+
+                const x = (e.pageX - centerX) / (speed / 4);
+                const y = (e.pageY - centerY) / (speed / 4);
+
+                layer.style.transform = ` translate(-20vw,-30vh) translate(${x}px, ${y}px)`;
+
+
+            });
+
+        }
+    </script>
+
+
+</body>
+
+</html>
